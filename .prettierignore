@@ -1,0 +1,10 @@
+# Ignore everything...
+/*
+
+# Except...
+!.github/
+!.vscode/
+!src/
+!README.md
+!package.json
+!tsconfig.json

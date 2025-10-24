@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "PKief.material-icon-theme",
+    "Tyriar.sort-lines",
+    "angular.ng-template",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "github.copilot",
+    "grimmer.vscode-back-forward-button",
+    "johnpapa.angular2",
+    "mrmlnc.vscode-scss",
+    "natewallace.angular2-inline",
+    "steoates.autoimport"
+  ]
+}

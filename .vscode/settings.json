@@ -1,0 +1,9 @@
+{
+  "editor.codeLens": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.wrapTabs": true
+}
