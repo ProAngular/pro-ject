@@ -51,20 +51,38 @@
 
 ## Description <a name="description"></a>
 
-**@proangular/pro-ject** is an interactive Node CLI that guides `ng new` and sets up a clean Angular 20+ workspace with opinionated defaults. It validates and sanitizes the project name, ensures Angular CLI is available, scaffolds the repo, then offers post-create add ons for Animations (auto wires `provideAnimations()` in `app.config.ts`), Angular CDK, and Angular Material. One command to start, clear prompts, safe naming rules, and a tidy step pipeline you can extend.
+Generate an Google Angular 20+ project with best-practice defaults in less than a minute!
 
-**Features**
+**@proangular/pro-ject** is an interactive Node CLI that guides `ng new` and sets up a clean Angular 20+ workspace with opinionated defaults. It validates and sanitizes the project name, ensures Angular CLI is available, scaffolds the repo, confirms a working **serve** target, and then offers post-create add-ons you can toggle on with simple prompts. One command to start, clear prompts, safe naming rules, and a tidy step pipeline you can extend.
+
+**What it can set up for you**
 
 - `wizard` workflow with clear, minimal prompts
 - `TypeScript` first
 - `Angular 20+` ready
 - `Best Practices` baked in
-- `Runtime Type Checking` where it helps
-- `Angular Material` optional add on
-- `Animations` with automatic `provideAnimations()` wiring
-- `Opinionated Code Formatting (Prettier)`
-- `Code Checks (ESLint)`
-- `Husky Git Hooks` for pre-commit linting and formatting
+- `Runtime Type Checking` with `io-ts` (optional)
+- `DateTime` with `luxon` + Material Luxon adapter (optional)
+- `Angular CDK` (optional)
+- `Angular Material` (optional)
+  - If selected, optionally install:
+    - `@proangular/pro-form` — drop-in standalone inputs, unified labels/hints/errors, helpers like scroll-to-first-error and focus-on-invalid
+    - `@proangular/pro-table` — typed columns, selection, copy on click, expandable rows, intent-based sorting, and more
+    - `@proangular/ngx-scroll-top` — lightweight back-to-top button
+    - `@proangular/ngx-gist` — Material + Highlight.js styled box for gists and local snippets
+- `Angular Animations` wiring (optional)
+- `Opinionated src/app structure` with README placeholders for:
+  `components`, `constants`, `decorators`, `directives`, `enums`, `guards`, `layout`, `models`, `pages`, `pipes`, `providers`, `routing`, `services`, `signals`, `styles`, `types`, `utilities` (optional)
+- `Opinionated Code Formatting (Prettier)` (optional)
+- `Code Checks (ESLint)` (optional)
+- `Husky Git Hooks` for pre-commit linting and formatting (optional)
+- Ensures a working `ng serve` target and a writable project directory
+
+<p align="right">[ <a href="#index">Index</a> ]</p>
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
 
 ## Quick Start <a name="quick-start"></a>
 
@@ -73,6 +91,14 @@ First, install [Node.js][node-js] v20+. Then, run the following command:
 ```bash
 npm create @proangular/pro-ject@latest
 ```
+
+Follow the prompts to scaffold your new Angular project with best-practice defaults. Once complete, navigate to your new project directory and start the development server:
+
+```bash
+npm run start
+```
+
+Then open your browser to `http://localhost:4200` to see your new Angular application in action!
 
 > ![Info][img-info] Node 20 or newer. Works on macOS, Linux, and Windows.
 
@@ -120,30 +146,22 @@ npm create @proangular/pro-ject@latest
 
     .
     ├─ .github/                      # GitHub workflows, actions, and related automation files.
+    ├─ .scripts/                     # Scripts run by node for various automation tasks.
     ├─ .vscode/                      # VS Code workspace settings for the project.
     ├─ dist/                         # Non-committed, compiled project files from source code in `src/`.
     ├─ node_modules/                 # Non-committed, installed dependencies needed to run & develop the project.
     ├─ src/                          # Source code of the project.
+    │  ├─ constants/                 # Project constants such as version mappings.
     │  ├─ steps/                     # The wizard steps for project generation.
-    │  │  ├─ addAnimations.ts        # Step to add Angular animations package.
-    │  │  ├─ confirmProjectName.ts   # Step to confirm the project name.
-    │  │  ├─ createProject.ts        # Step to create the Angular project.
-    │  │  ├─ ensureAngularCLI.ts     # Step to ensure Angular CLI is installed.
-    │  │  ├─ ensureWritableTarget.ts # Step to ensure the target directory is writable.
-    │  │  ├─ postCreatePackages.ts   # Step to handle post-creation package installations.
-    │  │  ├─ promptProjectName.ts    # Step to prompt for the project name.
-    |  |  └─ ...                     # Additional future steps.
+    │  ├─ templates/                 # File templates used during project scaffolding.
     │  ├─ utils/                     # Utility functions and types.
-    │  │  ├─ name.ts                 # Utilities for handling and validating project names.
-    │  │  ├─ shell.ts                # Utilities for executing shell commands.
-    │  │  ├─ types.ts                # Shared types used across the project.
-    |  |  └─ ...                     # Additional future utilities and types.
     │  └─ index.ts                   # The main entry point of the project.
     ├─ .gitignore                    # Specifies files and directories to be ignored by Git.
     ├─ .prettierignore               # Specifies files and directories to be ignored by Prettier.
-    ├─ README.md                     # This file.
-    ├─ package.json                  # Project metadata and dependencies.
+    ├─ LICENSE                       # The MIT license for this project.
     ├─ package-lock.json             # Auto-generated file that locks the versions of dependencies.
+    ├─ package.json                  # Project metadata and dependencies.
+    ├─ README.md                     # This file.
     └─ tsconfig.json                 # TypeScript configuration file.
 
 <p align="right">[ <a href="#index">Index</a> ]</p>

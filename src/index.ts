@@ -12,11 +12,12 @@ import { onCancel } from "./utils/on-cancel.js";
 
 async function main(): Promise<void> {
   const v = VERSIONS["@angular/cli"];
-  const majorCaret = v.replace(/^\^?(\d+).*/, "$1");
+  const vCarrot = v.replace(/^\^?(\d+).*/, "$1");
 
   log('Running "@proangular/pro-ject"', "bold");
-  log(`A simple Angular v${majorCaret}+ project scaffolding tool.`);
+  log(`A simple Angular v${vCarrot}+ project scaffolding tool.`);
   log("Author: Cody Tolene <www.codytolene.com>", "cyan");
+  log("");
   log("Angular Project Wizard", "green", true);
 
   const ctx = await promptProjectName(onCancel);
