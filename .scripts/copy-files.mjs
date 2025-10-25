@@ -5,8 +5,10 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const src = path.resolve(__dirname, "../src/files");
-const dst = path.resolve(__dirname, "../dist/files");
+const TEMPLATES_DIR = "templates"; // Keep in sync with src/constants/templates-dir.ts
+
+const src = path.resolve(__dirname, `../src/${TEMPLATES_DIR}`);
+const dst = path.resolve(__dirname, `../dist/${TEMPLATES_DIR}`);
 
 function copyDir(from, to) {
   if (!fs.existsSync(from)) return;

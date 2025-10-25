@@ -5,7 +5,7 @@ import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { execa } from "execa";
 import { mergeScript } from "../utils/scripts.js";
-import { VERSIONS } from "../utils/versions.js";
+import { VERSIONS } from "../constants/versions.js";
 import { log } from "../utils/log.js";
 
 export async function addHusky(ctx: WizardContext): Promise<void> {

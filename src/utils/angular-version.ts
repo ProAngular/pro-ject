@@ -1,6 +1,6 @@
 import path from "node:path";
 import { readJsonLoose } from "./json.js";
-import { VERSIONS } from "./versions.js";
+import { VERSIONS } from "../constants/versions.js";
 
 /**
  * Returns the @angular/core version from the created workspace if available.

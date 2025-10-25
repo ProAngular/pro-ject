@@ -4,7 +4,7 @@ import { npmInstall } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { copyFileFromTemplates, filesRoot } from "../utils/files.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
-import { VERSIONS } from "../utils/versions.js";
+import { VERSIONS } from "../constants/versions.js";
 import { log } from "../utils/log.js";
 
 /**

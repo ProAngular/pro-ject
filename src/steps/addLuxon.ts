@@ -3,7 +3,7 @@ import fs from "node:fs";
 import type { WizardContext } from "../utils/types.js";
 import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
-import { VERSIONS } from "../utils/versions.js";
+import { VERSIONS } from "../constants/versions.js";
 import { log } from "../utils/log.js";
 
 /**

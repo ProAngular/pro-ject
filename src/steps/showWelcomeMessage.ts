@@ -1,5 +1,5 @@
 import { log } from "../utils/log.js";
-import { VERSIONS } from "../utils/versions.js";
+import { VERSIONS } from "../constants/versions.js";
 
 export function showWelcomeMessage(): void {
   const v = VERSIONS["@angular/cli"];

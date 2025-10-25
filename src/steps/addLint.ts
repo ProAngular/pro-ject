@@ -6,7 +6,7 @@ import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { copyTemplateAndReplace } from "../utils/files.js";
 import { toKebab } from "../utils/name.js";
-import { VERSIONS } from "../utils/versions.js";
+import { VERSIONS } from "../constants/versions.js";
 import { log } from "../utils/log.js";
 
 /**

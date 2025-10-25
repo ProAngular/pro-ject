@@ -206,7 +206,7 @@ module.exports = tseslint.config(
       "one-var": ["error", "never"],
       // Require using arrow functions for callbacks
       // @see https://eslint.org/docs/latest/rules/prefer-arrow-callback
-      "prefer-arrow/prefer-arrow-functions": "off",
+      "prefer-arrow-callback": ["error"],
       // Require const declarations for variables that are never reassigned
       // after declared
       // @see https://eslint.org/docs/latest/rules/prefer-const

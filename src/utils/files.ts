@@ -1,14 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { TEMPLATES_DIR } from "../constants/templates-dir.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * Copies a file from the 'files' directory to a target location.
+ * Copies a file from the `TEMPLATES_DIR` directory to a target location.
  *
- * @param relPath The relative path within the 'files' directory
+ * @param relPath The relative path within the TEMPLATES_DIR directory
  * @param targetAbsPath The absolute path where the file should be copied to
  */
 export function copyFileFromTemplates(
@@ -21,7 +22,7 @@ export function copyFileFromTemplates(
 }
 
 /**
- * Copies a template file from the 'files' directory to a target location,
+ * Copies a template file from the TEMPLATES_DIR directory to a target location,
  * replacing placeholders with actual values.
  *
  * @param relPath The relative path to the template file
@@ -44,10 +45,10 @@ export function copyTemplateAndReplace(
 }
 
 /**
- * Gets the absolute path to the 'files' directory.
+ * Gets the absolute path to the TEMPLATES_DIR directory.
  *
- * @returns The absolute path to the 'files' directory.
+ * @returns The absolute path to the TEMPLATES_DIR directory.
  */
 export function filesRoot(): string {
-  return path.resolve(__dirname, "../files");
+  return path.resolve(__dirname, `../${TEMPLATES_DIR}`);
 }

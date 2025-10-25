@@ -1,6 +1,6 @@
 import { execa } from "execa";
 import { getWorkspaceAngularVersion } from "./angular-version.js";
-import { VERSIONS } from "./versions.js";
+import { VERSIONS } from "../constants/versions.js";
 
 /**
  * Adds @angular/animations with a version compatible with the workspace Angular version.
