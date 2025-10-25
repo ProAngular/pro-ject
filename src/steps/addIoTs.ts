@@ -3,6 +3,7 @@ import type { WizardContext } from "../utils/types.js";
 import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { VERSIONS } from "../utils/versions.js";
+import { log } from "../utils/log.js";
 
 export async function addIoTs(ctx: WizardContext): Promise<void> {
   // Install
@@ -17,5 +18,5 @@ export async function addIoTs(ctx: WizardContext): Promise<void> {
   };
   writeJson(pkgPath, pkg);
 
-  console.log("io-ts installed.");
+  log("io-ts installed.");
 }

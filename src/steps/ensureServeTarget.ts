@@ -1,6 +1,7 @@
 import path from "node:path";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import type { WizardContext } from "../utils/types.js";
+import { log } from "../utils/log.js";
 
 /**
  * Ensures that the Angular project has a 'serve' target in angular.json.
@@ -32,6 +33,6 @@ export async function ensureServeTarget(ctx: WizardContext): Promise<void> {
     ng.cli.defaultProject = ng.cli.defaultProject ?? projectName;
 
     writeJson(ngPath, ng);
-    console.log(`Added 'serve' target to ${projectName}.`);
+    log(`Added 'serve' target to ${projectName}.`);
   }
 }

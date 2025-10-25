@@ -1,3 +1,4 @@
+import { log } from "../utils/log.js";
 import { cmdExists, installGlobalAngularCli } from "../utils/shell.js";
 
 /**
@@ -6,9 +7,9 @@ import { cmdExists, installGlobalAngularCli } from "../utils/shell.js";
 export async function ensureAngularCli(): Promise<void> {
   const hasNg = await cmdExists("ng");
   if (!hasNg) {
-    console.log("Installing @angular/cli globally...");
+    log("Installing @angular/cli globally...");
     await installGlobalAngularCli();
   } else {
-    console.log("ng is available.");
+    log("ng is available.");
   }
 }

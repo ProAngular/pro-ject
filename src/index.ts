@@ -6,14 +6,14 @@ import { ensureServeTarget } from "./steps/ensureServeTarget.js";
 import { ensureWritableTarget } from "./steps/ensureWritableTarget.js";
 import { postCreatePackages } from "./steps/postCreatePackages.js";
 import { promptProjectName } from "./steps/promptProjectName.js";
+import { showWelcomeMessage } from "./steps/showWelcomeMessage.js";
+import { log } from "./utils/log.js";
 import { onCancel } from "./utils/on-cancel.js";
 
 async function main(): Promise<void> {
-  console.log("Angular Project Wizard");
-  console.log("-------------------");
+  showWelcomeMessage();
 
   const ctx = await promptProjectName(onCancel);
-
   await confirmProjectName(ctx, onCancel);
   await ensureWritableTarget(ctx, onCancel);
   await ensureAngularCli();
@@ -21,7 +21,8 @@ async function main(): Promise<void> {
   await ensureServeTarget(ctx);
   await postCreatePackages(ctx, onCancel);
 
-  console.log("Done.");
+  log("Done.");
+  log("Run `npm run start` to start the development server.");
 }
 
 main().catch((err) => {

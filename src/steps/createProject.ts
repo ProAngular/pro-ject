@@ -1,3 +1,4 @@
+import { log } from "../utils/log.js";
 import { runNgNew } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 
@@ -7,6 +8,6 @@ import type { WizardContext } from "../utils/types.js";
  * @param ctx The wizard context.
  */
 export async function createProject(ctx: WizardContext): Promise<void> {
-  console.log(`Running: ng new ${ctx.projectName}`);
+  log(`Running: ng new ${ctx.projectName}`);
   await runNgNew(ctx.projectName);
 }

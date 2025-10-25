@@ -7,6 +7,7 @@ import { addLint } from "./addLint.js";
 import { addHusky } from "./addHusky.js";
 import { addLuxon } from "./addLuxon.js";
 import { addIoTs } from "./addIoTs.js";
+import { log } from "../utils/log.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -73,42 +74,42 @@ export async function postCreatePackages(
   );
 
   if (post.prettier) {
-    console.log("Adding Prettier formatting...");
+    log("Adding Prettier formatting...");
     await addPrettier(ctx);
   }
 
   if (post.lint) {
-    console.log("Adding ESLint (flat config)...");
+    log("Adding ESLint (flat config)...");
     await addLint(ctx);
   }
 
   if (post.husky) {
-    console.log("Adding Husky pre-commit hooks...");
+    log("Adding Husky pre-commit hooks...");
     await addHusky(ctx);
   }
 
   if (post.luxon) {
-    console.log("Adding Luxon DateTime support...");
+    log("Adding Luxon DateTime support...");
     await addLuxon(ctx);
   }
 
   if (post.ioTs) {
-    console.log("Adding io-ts for runtime type checking...");
+    log("Adding io-ts for runtime type checking...");
     await addIoTs(ctx);
   }
 
   if (post.animations) {
-    console.log("Installing @angular/animations...");
+    log("Installing @angular/animations...");
     await addAnimations(ctx);
   }
 
   if (post.cdk) {
-    console.log("Adding @angular/cdk...");
+    log("Adding @angular/cdk...");
     await addCdkCompat(ctx.targetDir);
   }
 
   if (post.material) {
-    console.log("Adding @angular/material...");
+    log("Adding @angular/material...");
     await addMaterialCompat(ctx.targetDir);
   }
 }

@@ -4,6 +4,7 @@ import type { WizardContext } from "../utils/types.js";
 import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { VERSIONS } from "../utils/versions.js";
+import { log } from "../utils/log.js";
 
 /**
  * Adds Luxon and the Angular Material Luxon adapter to the project.
@@ -113,17 +114,17 @@ export async function addLuxon(ctx: WizardContext): Promise<void> {
       }
 
       fs.writeFileSync(appConfigPath, text, "utf8");
-      console.log("Wired MatLuxonDateModule into app.config.ts");
+      log("Wired MatLuxonDateModule into app.config.ts");
     } else {
       console.warn(
         "[luxon] Could not find src/app/app.config.ts to wire MatLuxonDateModule. Skipping."
       );
     }
   } else {
-    console.log(
+    log(
       "Angular Material not detected; installed Luxon + adapter but did not wire MatLuxonDateModule."
     );
   }
 
-  console.log("Luxon configured.");
+  log("Luxon configured.");
 }

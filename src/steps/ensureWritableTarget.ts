@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import prompts from "prompts";
 import type { WizardContext } from "../utils/types.js";
+import { log } from "../utils/log.js";
 
 /**
  * Ensures that the target directory is writable, prompting the user if it is not empty.
@@ -26,7 +27,7 @@ export async function ensureWritableTarget(
       { onCancel }
     );
     if (!overwrite.yes) {
-      console.log("Canceled.");
+      log("Canceled.");
       process.exit(1);
     }
   }

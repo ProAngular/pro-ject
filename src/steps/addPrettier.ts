@@ -5,6 +5,7 @@ import type { WizardContext } from "../utils/types.js";
 import { copyFileFromTemplates, filesRoot } from "../utils/files.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { VERSIONS } from "../utils/versions.js";
+import { log } from "../utils/log.js";
 
 /**
  * Adds Prettier formatting to the Angular project.
@@ -72,5 +73,5 @@ export async function addPrettier(ctx: WizardContext): Promise<void> {
   };
   writeJson(pkgPath, pkg);
 
-  console.log("Prettier configured.");
+  log("Prettier configured.");
 }

@@ -6,6 +6,7 @@ import { readJsonLoose, writeJson } from "../utils/json.js";
 import { execa } from "execa";
 import { mergeScript } from "../utils/scripts.js";
 import { VERSIONS } from "../utils/versions.js";
+import { log } from "../utils/log.js";
 
 export async function addHusky(ctx: WizardContext): Promise<void> {
   await npmInstall(
@@ -146,5 +147,5 @@ export async function addHusky(ctx: WizardContext): Promise<void> {
     // ignore on platforms where chmod is a no-op
   }
 
-  console.log("Husky configured.");
+  log("Husky configured.");
 }

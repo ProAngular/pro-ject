@@ -1,5 +1,6 @@
 import prompts from "prompts";
 import type { WizardContext } from "../utils/types.js";
+import { log } from "../utils/log.js";
 
 /**
  * Confirms the project name with the user.
@@ -22,7 +23,7 @@ export async function confirmProjectName(
   );
 
   if (!confirm.ok) {
-    console.log("Canceled.");
+    log("Canceled.");
     process.exit(1);
   }
 }

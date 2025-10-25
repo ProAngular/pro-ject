@@ -7,6 +7,7 @@ import { readJsonLoose, writeJson } from "../utils/json.js";
 import { copyTemplateAndReplace } from "../utils/files.js";
 import { toKebab } from "../utils/name.js";
 import { VERSIONS } from "../utils/versions.js";
+import { log } from "../utils/log.js";
 
 /**
  * Adds ESLint (flat config) to the Angular project.
@@ -106,5 +107,5 @@ export async function addLint(ctx: WizardContext): Promise<void> {
     ],
   });
 
-  console.log("ESLint configured (ng lint ready).");
+  log("ESLint configured (ng lint ready).");
 }
