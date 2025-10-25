@@ -2,6 +2,7 @@ import prompts from "prompts";
 import { runNgAdd } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { addAnimations } from "./addAnimations.js";
+import { addPrettier } from "./addPrettier.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -15,6 +16,12 @@ export async function postCreatePackages(
 ): Promise<void> {
   const post = await prompts(
     [
+      {
+        type: "confirm",
+        name: "prettier",
+        message: "Add Prettier for formatting?",
+        initial: true,
+      },
       {
         type: "confirm",
         name: "animations",
@@ -37,6 +44,7 @@ export async function postCreatePackages(
     { onCancel }
   );
 
+  if (post.prettier) await addPrettier(ctx);
   if (post.animations) await addAnimations(ctx);
   if (post.cdk) {
     console.log("Adding @angular/cdk...");

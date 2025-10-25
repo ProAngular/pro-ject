@@ -10,7 +10,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node .scripts/copy-files.mjs",
     "start": "npm run build && node dist/index.js",
     "dev": "tsx src/index.ts"
   },
