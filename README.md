@@ -89,18 +89,24 @@ Generate a Google Angular 20+ project with best-practice defaults in less than a
 First, install [Node.js][node-js] v20+. Then, run the following command:
 
 ```bash
-npm create @proangular/pro-ject@latest
+npx -y @proangular/pro-ject@latest
 ```
 
-Follow the prompts to scaffold your new Angular project with best-practice defaults. Once complete, navigate to your new project directory and start the development server:
+or
+
+```bash
+npm exec -y @proangular/pro-ject@latest
+```
+
+> ![Info][img-info] You can replace `@latest` with a specific version number if desired.
+
+Follow the prompts to scaffold your new Angular project with best-practice defaults. Once complete, **navigate to your new project directory** and start the development server:
 
 ```bash
 npm run start
 ```
 
 Then open your browser to `http://localhost:4200` to see your new Angular application in action!
-
-> ![Info][img-info] Node 20 or newer. Works on macOS, Linux, and Windows.
 
 <p align="right">[ <a href="#index">Index</a> ]</p>
 
