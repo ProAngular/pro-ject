@@ -2,16 +2,14 @@
 import { confirmProjectName } from "./steps/confirmProjectName.js";
 import { createProject } from "./steps/createProject.js";
 import { ensureAngularCli } from "./steps/ensureAngularCli.js";
+import { ensureServeTarget } from "./steps/ensureServeTarget.js";
 import { ensureWritableTarget } from "./steps/ensureWritableTarget.js";
 import { postCreatePackages } from "./steps/postCreatePackages.js";
 import { promptProjectName } from "./steps/promptProjectName.js";
 import { onCancel } from "./utils/on-cancel.js";
 
-/**
- * Main function to run the Angular project wizard.
- */
 async function main(): Promise<void> {
-  console.log("Angular Repo Wizard");
+  console.log("Angular Project Wizard");
   console.log("-------------------");
 
   const ctx = await promptProjectName(onCancel);
@@ -20,6 +18,7 @@ async function main(): Promise<void> {
   await ensureWritableTarget(ctx, onCancel);
   await ensureAngularCli();
   await createProject(ctx);
+  await ensureServeTarget(ctx);
   await postCreatePackages(ctx, onCancel);
 
   console.log("Done.");
