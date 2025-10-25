@@ -6,6 +6,7 @@ import { addPrettier } from "./addPrettier.js";
 import { addLint } from "./addLint.js";
 import { addHusky } from "./addHusky.js";
 import { addLuxon } from "./addLuxon.js";
+import { addIoTs } from "./addIoTs.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -41,6 +42,12 @@ export async function postCreatePackages(
         type: "confirm",
         name: "luxon",
         message: "Use Luxon (DateTime) + Material Luxon adapter?",
+        initial: true,
+      },
+      {
+        type: "confirm",
+        name: "ioTs",
+        message: "Use io-ts for runtime type checking?",
         initial: true,
       },
       {
@@ -83,6 +90,11 @@ export async function postCreatePackages(
   if (post.luxon) {
     console.log("Adding Luxon DateTime support...");
     await addLuxon(ctx);
+  }
+
+  if (post.ioTs) {
+    console.log("Adding io-ts for runtime type checking...");
+    await addIoTs(ctx);
   }
 
   if (post.animations) {

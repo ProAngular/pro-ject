@@ -7,6 +7,7 @@ export const VERSIONS = {
   "@trivago/prettier-plugin-sort-imports": "^5.2.2",
   "@types/luxon": "^3.7.1",
   "angular-eslint": "^20.1.1",
+  "io-ts": "^2.2.22",
   "is-ci": "^3.0.1",
   "typescript-eslint": "^8.39.1",
   eslint: "^9.33.0",
