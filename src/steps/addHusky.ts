@@ -5,11 +5,13 @@ import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { execa } from "execa";
 import { mergeScript } from "../utils/scripts.js";
+import { VERSIONS } from "../utils/versions.js";
 
 export async function addHusky(ctx: WizardContext): Promise<void> {
-  console.log("Adding Husky pre-commit hooks...");
-
-  await npmInstall(["-D", "husky@^9.1.7", "is-ci@^3.0.1"], ctx.targetDir);
+  await npmInstall(
+    ["-D", `husky@${VERSIONS.husky}`, `is-ci@${VERSIONS["is-ci"]}`],
+    ctx.targetDir
+  );
 
   const pkgPath = path.join(ctx.targetDir, "package.json");
   const pkg = readJsonLoose<Record<string, any>>(pkgPath) ?? {};
@@ -24,8 +26,8 @@ export async function addHusky(ctx: WizardContext): Promise<void> {
   pkg.scripts = scripts;
   pkg.devDependencies = {
     ...(pkg.devDependencies ?? {}),
-    husky: pkg.devDependencies?.husky ?? "^9.1.7",
-    "is-ci": pkg.devDependencies?.["is-ci"] ?? "^3.0.1",
+    husky: pkg.devDependencies?.husky ?? VERSIONS.husky,
+    "is-ci": pkg.devDependencies?.["is-ci"] ?? VERSIONS["is-ci"],
   };
   writeJson(pkgPath, pkg);
 

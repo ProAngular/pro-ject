@@ -6,6 +6,7 @@ import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { copyTemplateAndReplace } from "../utils/files.js";
 import { toKebab } from "../utils/name.js";
+import { VERSIONS } from "../utils/versions.js";
 
 /**
  * Adds ESLint (flat config) to the Angular project.
@@ -21,13 +22,12 @@ export async function addLint(ctx: WizardContext): Promise<void> {
     initial: defaultPrefix,
   });
 
-  console.log("Adding ESLint (flat config)...");
   await npmInstall(
     [
       "-D",
-      "angular-eslint@20.1.1",
-      "eslint@^9.33.0",
-      "typescript-eslint@8.39.1",
+      `angular-eslint@${VERSIONS["angular-eslint"]}`,
+      `eslint@${VERSIONS.eslint}`,
+      `typescript-eslint@${VERSIONS["typescript-eslint"]}`,
     ],
     ctx.targetDir
   );

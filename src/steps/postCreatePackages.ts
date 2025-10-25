@@ -1,5 +1,5 @@
 import prompts from "prompts";
-import { runNgAdd } from "../utils/shell.js";
+import { addCdkCompat, addMaterialCompat, runNgAdd } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { addAnimations } from "./addAnimations.js";
 import { addPrettier } from "./addPrettier.js";
@@ -59,28 +59,32 @@ export async function postCreatePackages(
   );
 
   if (post.prettier) {
+    console.log("Adding Prettier formatting...");
     await addPrettier(ctx);
   }
 
   if (post.lint) {
+    console.log("Adding ESLint (flat config)...");
     await addLint(ctx);
   }
 
   if (post.husky) {
+    console.log("Adding Husky pre-commit hooks...");
     await addHusky(ctx);
   }
 
   if (post.animations) {
+    console.log("Installing @angular/animations...");
     await addAnimations(ctx);
   }
 
   if (post.cdk) {
     console.log("Adding @angular/cdk...");
-    await runNgAdd("@angular/cdk", ctx.targetDir);
+    await addCdkCompat(ctx.targetDir);
   }
 
   if (post.material) {
     console.log("Adding @angular/material...");
-    await runNgAdd("@angular/material", ctx.targetDir);
+    await addMaterialCompat(ctx.targetDir);
   }
 }

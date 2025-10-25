@@ -1,4 +1,40 @@
 import { execa } from "execa";
+import { getWorkspaceAngularVersion } from "./angular-version.js";
+import { VERSIONS } from "./versions.js";
+
+/**
+ * Adds @angular/animations with a version compatible with the workspace Angular version.
+ *
+ * @param targetDir The target directory of the Angular workspace.
+ */
+export async function addAnimationsCompat(targetDir: string): Promise<void> {
+  const v = getWorkspaceAngularVersion(targetDir);
+  const majorCaret = v.replace(/^\^?(\d+).*/, "^$1");
+  await npmInstall([`@angular/animations@${majorCaret}`], targetDir);
+}
+
+/**
+ * Adds @angular/cdk with a version compatible with the workspace Angular version.
+ *
+ * @param targetDir The target directory of the Angular workspace.
+ */
+export async function addCdkCompat(targetDir: string): Promise<void> {
+  const v = getWorkspaceAngularVersion(targetDir);
+  const majorCaret = v.replace(/^\^?(\d+).*/, "^$1");
+  await runNgAdd(`@angular/cdk@${majorCaret}`, targetDir);
+}
+
+/**
+ * Adds @angular/material with a version compatible with the workspace Angular version.
+ *
+ * @param targetDir The target directory of the Angular workspace.
+ */
+export async function addMaterialCompat(targetDir: string): Promise<void> {
+  const v = getWorkspaceAngularVersion(targetDir); // e.g. "^20.1.6"
+  // convert to caret major to be resilient across patches
+  const majorCaret = v.replace(/^\^?(\d+).*/, "^$1"); // "^20"
+  await runNgAdd(`@angular/material@${majorCaret}`, targetDir);
+}
 
 /**
  * Checks if a command exists by attempting to run it with the --version flag.
@@ -20,7 +56,13 @@ export async function cmdExists(cmd: string): Promise<boolean> {
  */
 export async function installGlobalAngularCli(): Promise<void> {
   // Windows may need elevated PowerShell. We simply run npm and let npm prompt as needed.
-  await execa("npm", ["install", "-g", "@angular/cli"], { stdio: "inherit" });
+  await execa(
+    "npm",
+    ["install", "-g", `@angular/cli@${VERSIONS["@angular/cli"]}`],
+    {
+      stdio: "inherit",
+    }
+  );
 }
 
 /**

@@ -11,7 +11,10 @@ const __dirname = path.dirname(__filename);
  * @param relPath The relative path within the 'files' directory
  * @param targetAbsPath The absolute path where the file should be copied to
  */
-export function copyFileFromTemplates(relPath: string, targetAbsPath: string) {
+export function copyFileFromTemplates(
+  relPath: string,
+  targetAbsPath: string
+): void {
   const from = path.join(filesRoot(), relPath);
   fs.mkdirSync(path.dirname(targetAbsPath), { recursive: true });
   fs.copyFileSync(from, targetAbsPath);
@@ -29,7 +32,7 @@ export function copyTemplateAndReplace(
   relPath: string,
   targetAbsPath: string,
   replacements: Record<string, string>
-) {
+): void {
   const from = path.join(filesRoot(), relPath);
   const raw = fs.readFileSync(from, "utf8");
   const out = Object.entries(replacements).reduce(

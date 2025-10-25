@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { npmInstall } from "../utils/shell.js";
+import { addAnimationsCompat, npmInstall } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 
 /**
@@ -9,8 +9,7 @@ import type { WizardContext } from "../utils/types.js";
  * @param ctx The wizard context.
  */
 export async function addAnimations(ctx: WizardContext): Promise<void> {
-  console.log("Installing @angular/animations...");
-  await npmInstall(["@angular/animations"], ctx.targetDir);
+  await addAnimationsCompat(ctx.targetDir);
 
   const appConfigPath = path.join(ctx.targetDir, "src", "app", "app.config.ts");
   if (!fs.existsSync(appConfigPath)) {

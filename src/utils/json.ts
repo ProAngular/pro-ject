@@ -1,5 +1,11 @@
 import fs from "node:fs";
 
+/**
+ * Reads a JSON file leniently, ignoring comments and trailing commas.
+ *
+ * @param file The path to the JSON file.
+ * @returns The parsed JSON object or null if not found or invalid.
+ */
 export function readJsonLoose<T = any>(file: string): T | null {
   if (!fs.existsSync(file)) return null;
   const raw = fs.readFileSync(file, "utf8");
@@ -17,7 +23,13 @@ export function readJsonLoose<T = any>(file: string): T | null {
   }
 }
 
-export function writeJson(file: string, data: unknown) {
+/**
+ * Writes an object to a JSON file with pretty formatting.
+ *
+ * @param file The path to the JSON file.
+ * @param data The data to write to the file.
+ */
+export function writeJson(file: string, data: unknown): void {
   const out = JSON.stringify(data, null, 2) + "\n";
   fs.writeFileSync(file, out, "utf8");
 }

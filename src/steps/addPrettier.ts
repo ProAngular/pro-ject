@@ -4,6 +4,7 @@ import { npmInstall } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { copyFileFromTemplates, filesRoot } from "../utils/files.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
+import { VERSIONS } from "../utils/versions.js";
 
 /**
  * Adds Prettier formatting to the Angular project.
@@ -11,11 +12,13 @@ import { readJsonLoose, writeJson } from "../utils/json.js";
  * @param ctx The wizard context.
  */
 export async function addPrettier(ctx: WizardContext): Promise<void> {
-  console.log("Adding Prettier formatting...");
-
   // Install dev deps
   await npmInstall(
-    ["-D", "prettier", "@trivago/prettier-plugin-sort-imports"],
+    [
+      "-D",
+      `prettier@${VERSIONS.prettier}`,
+      `@trivago/prettier-plugin-sort-imports@${VERSIONS["@trivago/prettier-plugin-sort-imports"]}`,
+    ],
     ctx.targetDir
   );
 
@@ -35,10 +38,6 @@ export async function addPrettier(ctx: WizardContext): Promise<void> {
 
   const extPath = path.join(vscodeDir, "extensions.json");
   const settingsPath = path.join(vscodeDir, "settings.json");
-
-  const extTemplate = readJsonLoose<{ recommendations?: string[] }>(
-    path.join(path.dirname(vscodeDir), "files/vscode/extensions.json")
-  );
 
   // Merge or create extensions
   const existingExt =
@@ -61,10 +60,10 @@ export async function addPrettier(ctx: WizardContext): Promise<void> {
   const pkg = readJsonLoose<Record<string, any>>(pkgPath) ?? {};
   pkg.devDependencies = {
     ...(pkg.devDependencies ?? {}),
-    prettier: pkg.devDependencies?.prettier ?? "^3.6.0",
+    prettier: pkg.devDependencies?.prettier ?? VERSIONS.prettier,
     "@trivago/prettier-plugin-sort-imports":
       pkg.devDependencies?.["@trivago/prettier-plugin-sort-imports"] ??
-      "^5.2.2",
+      VERSIONS["@trivago/prettier-plugin-sort-imports"],
   };
   pkg.scripts = {
     ...(pkg.scripts ?? {}),
