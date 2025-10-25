@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { VERSIONS } from "./constants/versions.js";
 import { confirmProjectName } from "./steps/confirmProjectName.js";
 import { createProject } from "./steps/createProject.js";
 import { ensureAngularCli } from "./steps/ensureAngularCli.js";
@@ -6,12 +7,17 @@ import { ensureServeTarget } from "./steps/ensureServeTarget.js";
 import { ensureWritableTarget } from "./steps/ensureWritableTarget.js";
 import { postCreatePackages } from "./steps/postCreatePackages.js";
 import { promptProjectName } from "./steps/promptProjectName.js";
-import { showWelcomeMessage } from "./steps/showWelcomeMessage.js";
 import { log } from "./utils/log.js";
 import { onCancel } from "./utils/on-cancel.js";
 
 async function main(): Promise<void> {
-  showWelcomeMessage();
+  const v = VERSIONS["@angular/cli"];
+  const majorCaret = v.replace(/^\^?(\d+).*/, "$1");
+
+  log('Running "@proangular/pro-ject"', "bold");
+  log(`A simple Angular v${majorCaret}+ project scaffolding tool.`);
+  log("Author: Cody Tolene <www.codytolene.com>", "cyan");
+  log("Angular Project Wizard", "green", true);
 
   const ctx = await promptProjectName(onCancel);
   await confirmProjectName(ctx, onCancel);
@@ -21,7 +27,7 @@ async function main(): Promise<void> {
   await ensureServeTarget(ctx);
   await postCreatePackages(ctx, onCancel);
 
-  log("Done.");
+  log("The Angular project has been created successfully!");
   log("Run `npm run start` to start the development server.");
 }
 

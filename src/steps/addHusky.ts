@@ -48,15 +48,17 @@ export async function addHusky(ctx: WizardContext): Promise<void> {
   }
 
   if (!inGitRepo) {
-    console.warn(
-      "[husky] This directory is not a Git repository. Initializing Git..."
+    log(
+      "[husky] If you prefer not to use Git, you can skip husky setup.",
+      "yellow"
     );
     try {
       await execa("git", ["init"], { cwd: ctx.targetDir, stdio: "inherit" });
       inGitRepo = true;
     } catch {
-      console.warn(
-        "[husky] Could not init Git. Hooks will be copied but not installed."
+      log(
+        "[husky] Could not init Git. Hooks will be copied but not installed.",
+        "warn"
       );
     }
   }
@@ -74,7 +76,7 @@ export async function addHusky(ctx: WizardContext): Promise<void> {
           stdio: "inherit",
         });
       } catch {
-        console.warn("[husky] Failed to run husky install. Continuing...");
+        log("[husky] Failed to run husky install. Continuing...", "warn");
       }
     }
   }
@@ -147,5 +149,5 @@ export async function addHusky(ctx: WizardContext): Promise<void> {
     // ignore on platforms where chmod is a no-op
   }
 
-  log("Husky configured.");
+  log("Husky configured.", "green");
 }

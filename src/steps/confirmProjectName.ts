@@ -23,7 +23,7 @@ export async function confirmProjectName(
   );
 
   if (!confirm.ok) {
-    log("Canceled.");
+    log("Canceled.", "red");
     process.exit(1);
   }
 }

@@ -116,15 +116,17 @@ export async function addLuxon(ctx: WizardContext): Promise<void> {
       fs.writeFileSync(appConfigPath, text, "utf8");
       log("Wired MatLuxonDateModule into app.config.ts");
     } else {
-      console.warn(
-        "[luxon] Could not find src/app/app.config.ts to wire MatLuxonDateModule. Skipping."
+      log(
+        "[luxon] Could not find src/app/app.config.ts to wire MatLuxonDateModule. Skipping.",
+        "warn"
       );
     }
   } else {
     log(
-      "Angular Material not detected; installed Luxon + adapter but did not wire MatLuxonDateModule."
+      "Angular Material not detected; installed Luxon + adapter but did not wire MatLuxonDateModule.",
+      "warn"
     );
   }
 
-  log("Luxon configured.");
+  log("Luxon configured.", "green");
 }

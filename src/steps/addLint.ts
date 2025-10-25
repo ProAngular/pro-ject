@@ -77,8 +77,13 @@ export async function addLint(ctx: WizardContext): Promise<void> {
     ng.projects[projectName] = project;
     writeJson(ngPath, ng);
   } else {
-    console.warn(
-      "[addLint] Could not update angular.json – 'ng lint' may not be wired. You can add the target manually with @angular-eslint/builder:lint."
+    log(
+      "[addLint] Could not update angular.json - 'ng lint' may not be wired.",
+      "warn"
+    );
+    log(
+      "You can add the target manually with @angular-eslint/builder:lint.",
+      "yellow"
     );
   }
 
@@ -107,5 +112,5 @@ export async function addLint(ctx: WizardContext): Promise<void> {
     ],
   });
 
-  log("ESLint configured (ng lint ready).");
+  log("ESLint configured (ng lint ready).", "green");
 }

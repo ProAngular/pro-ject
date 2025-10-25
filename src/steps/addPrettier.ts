@@ -73,5 +73,5 @@ export async function addPrettier(ctx: WizardContext): Promise<void> {
   };
   writeJson(pkgPath, pkg);
 
-  log("Prettier configured.");
+  log("Prettier configured.", "green");
 }

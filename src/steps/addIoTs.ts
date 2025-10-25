@@ -18,5 +18,5 @@ export async function addIoTs(ctx: WizardContext): Promise<void> {
   };
   writeJson(pkgPath, pkg);
 
-  log("io-ts installed.");
+  log("io-ts installed.", "green");
 }

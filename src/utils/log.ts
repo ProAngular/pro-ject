@@ -10,6 +10,7 @@ const COLOR = {
   green: "\x1b[32m",
   magenta: "\x1b[35m",
   red: "\x1b[31m",
+  warn: "\x1b[33m",
   yellow: "\x1b[33m",
 } as const;
 
@@ -21,6 +22,13 @@ export function log(
   colorName: keyof typeof COLOR = "none",
   isHeader = false
 ): void {
+  if (colorName === "warn") {
+    console.warn(
+      colorize(COLOR.yellow, isHeader ? getHeader(message) : message)
+    );
+    return;
+  }
+
   console.log(
     colorize(COLOR[colorName], isHeader ? getHeader(message) : message)
   );

@@ -22,10 +22,15 @@ var prettierConfig = {
 
   // Import ordering: Angular, RxJS, 3rd-party, app, relative
   importOrder: [
+    // Angular packages.
     "^@angular/(.*)$",
+    // RxJS packages.
     "^rxjs(.*)$",
+    // Other 3rd-party packages.
     "^@?(?!src)([a-zA-Z0-9-_.]+)(/.*)?$",
+    // Application packages.
     "^src/(.*)$",
+    // Relative imports.
     "^[./]",
   ],
   importOrderSeparation: true,

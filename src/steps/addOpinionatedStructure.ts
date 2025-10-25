@@ -121,5 +121,8 @@ export async function addOpinionatedStructure(
     );
   }
 
-  log("Created opinionated src/app structure with README placeholders.");
+  log(
+    "Created opinionated src/app structure with README placeholders.",
+    "green"
+  );
 }

@@ -12,6 +12,9 @@
     View Github Repository
   </a> 
   <p align="center">
+    Generate an Google Angular 20+ project with best-practice defaults in less than a minute!
+  </p>
+  <p align="center">
     A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20+ workspace with opinionated structure and best-practice defaults.
   </p>
 </div>
