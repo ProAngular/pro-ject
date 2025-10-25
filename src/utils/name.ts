@@ -39,7 +39,7 @@ export function isValidPackageName(name: string): {
  */
 export function sanitizeToKebab(input: string): string {
   let kebab = toKebab(input);
-  if (!kebab) return "my-project";
+  if (!kebab) return "app";
   if (!/^[a-z]/.test(kebab)) kebab = `a-${kebab}`;
   return kebab;
 }

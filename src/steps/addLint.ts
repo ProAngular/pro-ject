@@ -15,7 +15,7 @@ import { log } from "../utils/log.js";
  * @param ctx The wizard context.
  */
 export async function addLint(ctx: WizardContext): Promise<void> {
-  const defaultPrefix = toKebab(ctx.projectName ?? "app");
+  const defaultPrefix = toKebab("app");
   const { prefix } = await prompts({
     type: "text",
     name: "prefix",
