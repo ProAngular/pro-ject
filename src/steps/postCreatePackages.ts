@@ -5,6 +5,7 @@ import { addAnimations } from "./addAnimations.js";
 import { addPrettier } from "./addPrettier.js";
 import { addLint } from "./addLint.js";
 import { addHusky } from "./addHusky.js";
+import { addLuxon } from "./addLuxon.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -34,6 +35,12 @@ export async function postCreatePackages(
         type: "confirm",
         name: "husky",
         message: "Add Husky pre-commit hook?",
+        initial: true,
+      },
+      {
+        type: "confirm",
+        name: "luxon",
+        message: "Use Luxon (DateTime) + Material Luxon adapter?",
         initial: true,
       },
       {
@@ -71,6 +78,11 @@ export async function postCreatePackages(
   if (post.husky) {
     console.log("Adding Husky pre-commit hooks...");
     await addHusky(ctx);
+  }
+
+  if (post.luxon) {
+    console.log("Adding Luxon DateTime support...");
+    await addLuxon(ctx);
   }
 
   if (post.animations) {

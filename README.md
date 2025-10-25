@@ -1,6 +1,11 @@
 <div align="center">
   <a href="https://www.ProAngular.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/ProAngular/pro-ject/refs/heads/main/.github/images/logo.png" /> 
+    <img
+      alt="pro-ject Logo"
+      height="200"
+      src="https://raw.githubusercontent.com/ProAngular/pro-ject/refs/heads/main/.github/images/logo.png" 
+      width="200"
+    /> 
   </a>
   <h1 align="center"><code>@proangular/pro-ject</code></h1>
   <a align="center" href="https://github.com/ProAngular/pro-ject" target="_blank">
