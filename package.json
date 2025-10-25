@@ -2,10 +2,8 @@
   "name": "@proangular/pro-ject",
   "version": "1.0.0",
   "description": "A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20+ workspace with opinionated structure and best-practice defaults.",
-  "bin": {
-    "pro-ject": "dist/index.js"
-  },
-  "type": "module",
+  "author": "Pro Angular <webmaster@proangular.com>",
+  "private": false,
   "engines": {
     "node": ">=20.0.0"
   },
@@ -26,15 +24,42 @@
     "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   },
+  "contributors": [
+    {
+      "name": "Cody Tolene",
+      "email": "webmaster@codytolene.com",
+      "url": "https://www.codytolene.com"
+    }
+  ],
   "keywords": [
     "angular",
     "cli",
     "wizard",
     "scaffold",
-    "ng"
+    "ng",
+    "project",
+    "workspace",
+    "proangular",
+    "material"
   ],
+  "bin": {
+    "pro-ject": "dist/index.js"
+  },
+  "type": "module",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ProAngular/pro-ject.git"
+  },
+  "homepage": "https://www.proangular.com",
+  "bugs": {
+    "url": "https://github.com/ProAngular/pro-ject/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/proangular"
   }
 }
