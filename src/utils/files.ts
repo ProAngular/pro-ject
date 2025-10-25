@@ -16,7 +16,7 @@ export function copyFileFromTemplates(
   relPath: string,
   targetAbsPath: string
 ): void {
-  const from = path.join(filesRoot(), relPath);
+  const from = path.join(templatesRoot(), relPath);
   fs.mkdirSync(path.dirname(targetAbsPath), { recursive: true });
   fs.copyFileSync(from, targetAbsPath);
 }
@@ -34,7 +34,7 @@ export function copyTemplateAndReplace(
   targetAbsPath: string,
   replacements: Record<string, string>
 ): void {
-  const from = path.join(filesRoot(), relPath);
+  const from = path.join(templatesRoot(), relPath);
   const raw = fs.readFileSync(from, "utf8");
   const out = Object.entries(replacements).reduce(
     (acc, [key, value]) => acc.split(key).join(value),
@@ -49,6 +49,6 @@ export function copyTemplateAndReplace(
  *
  * @returns The absolute path to the TEMPLATES_DIR directory.
  */
-export function filesRoot(): string {
+export function templatesRoot(): string {
   return path.resolve(__dirname, `../${TEMPLATES_DIR}`);
 }

@@ -1,5 +1,5 @@
 import prompts from "prompts";
-import { addCdkCompat, addMaterialCompat, runNgAdd } from "../utils/shell.js";
+import { addCdkCompat, addMaterialCompat } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { addAnimations } from "./addAnimations.js";
 import { addPrettier } from "./addPrettier.js";

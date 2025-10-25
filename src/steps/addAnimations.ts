@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { addAnimationsCompat, npmInstall } from "../utils/shell.js";
+import { addAnimationsCompat } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { log } from "../utils/log.js";
 

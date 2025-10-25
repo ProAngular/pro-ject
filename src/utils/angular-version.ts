@@ -15,10 +15,10 @@ export function getWorkspaceAngularVersion(targetDir: string): string {
   const core = pkg?.dependencies?.["@angular/core"] as string | undefined;
   if (core) return core;
 
-  // Fallback: use the CLI pin as a caret range of the same major
+  // Fallback: use ng CLI major
   const cli = VERSIONS["@angular/cli"];
 
-  // e.g. "^20.1.7" -> "^20"
+  // Example "^20.1.7" -> "^20"
   const major = cli.replace(/^\^?(\d+).*/, "^$1");
   return major || "^20";
 }

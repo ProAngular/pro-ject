@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { npmInstall } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
-import { copyFileFromTemplates, filesRoot } from "../utils/files.js";
+import { copyFileFromTemplates, templatesRoot } from "../utils/files.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { VERSIONS } from "../constants/versions.js";
 import { log } from "../utils/log.js";
@@ -52,7 +52,7 @@ export async function addPrettier(ctx: WizardContext): Promise<void> {
     readJsonLoose<Record<string, unknown>>(settingsPath) ?? {};
   const baseSettings =
     readJsonLoose<Record<string, unknown>>(
-      path.join(filesRoot(), "vscode/settings.json")
+      path.join(templatesRoot(), "vscode/settings.json")
     ) ?? {};
   writeJson(settingsPath, { ...baseSettings, ...existingSettings });
 
