@@ -25,3 +25,26 @@ export function copyFileFromTemplates(relPath: string, targetAbsPath: string) {
   fs.mkdirSync(path.dirname(targetAbsPath), { recursive: true });
   fs.copyFileSync(from, targetAbsPath);
 }
+
+/**
+ * Copies a template file from the 'files' directory to a target location,
+ * replacing placeholders with actual values.
+ *
+ * @param relPath The relative path to the template file
+ * @param targetAbsPath The absolute path where the file should be copied to
+ * @param replacements An object mapping placeholder strings to their replacement values
+ */
+export function copyTemplateAndReplace(
+  relPath: string,
+  targetAbsPath: string,
+  replacements: Record<string, string>
+) {
+  const from = path.join(filesRoot(), relPath);
+  const raw = fs.readFileSync(from, "utf8");
+  const out = Object.entries(replacements).reduce(
+    (acc, [key, value]) => acc.split(key).join(value),
+    raw
+  );
+  fs.mkdirSync(path.dirname(targetAbsPath), { recursive: true });
+  fs.writeFileSync(targetAbsPath, out, "utf8");
+}

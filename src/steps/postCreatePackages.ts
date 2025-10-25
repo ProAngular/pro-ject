@@ -3,6 +3,7 @@ import { runNgAdd } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 import { addAnimations } from "./addAnimations.js";
 import { addPrettier } from "./addPrettier.js";
+import { addLint } from "./addLint.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -20,6 +21,12 @@ export async function postCreatePackages(
         type: "confirm",
         name: "prettier",
         message: "Add Prettier for formatting?",
+        initial: true,
+      },
+      {
+        type: "confirm",
+        name: "lint",
+        message: "Add ESLint (flat config)?",
         initial: true,
       },
       {
@@ -44,12 +51,23 @@ export async function postCreatePackages(
     { onCancel }
   );
 
-  if (post.prettier) await addPrettier(ctx);
-  if (post.animations) await addAnimations(ctx);
+  if (post.prettier) {
+    await addPrettier(ctx);
+  }
+
+  if (post.lint) {
+    await addLint(ctx);
+  }
+
+  if (post.animations) {
+    await addAnimations(ctx);
+  }
+
   if (post.cdk) {
     console.log("Adding @angular/cdk...");
     await runNgAdd("@angular/cdk", ctx.targetDir);
   }
+
   if (post.material) {
     console.log("Adding @angular/material...");
     await runNgAdd("@angular/material", ctx.targetDir);

@@ -32,22 +32,29 @@ export function isValidPackageName(name: string): {
 }
 
 /**
- * Sanitize a string to a kebab-case format.
+ * Kebab for Angular prefixes and project names.
  *
- * @param input The input string
- * @returns The sanitized kebab-case string
+ * @param input The input string to sanitize
+ * @returns A sanitized kebab-case string suitable for Angular project names
  */
 export function sanitizeToKebab(input: string): string {
-  const trimmed = input.trim();
-  const lower = trimmed.toLowerCase();
-  // Replace any run of invalid chars with a single hyphen
-  // Keep only a-z 0-9 - and start with letter
-  let kebab = lower
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+/, "")
-    .replace(/-+$/, "");
-  if (!/^[a-z]/.test(kebab) && kebab.length > 0) {
-    kebab = `a-${kebab}`;
-  }
-  return kebab || "my-project";
+  let kebab = toKebab(input);
+  if (!kebab) return "my-project";
+  if (!/^[a-z]/.test(kebab)) kebab = `a-${kebab}`;
+  return kebab;
+}
+
+/**
+ * Basic kebab-case normalizer.
+ *
+ * @param input The input string to convert
+ * @returns The kebab-case version of the input string
+ */
+export function toKebab(input: string): string {
+  return input
+    .trim()
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase();
 }

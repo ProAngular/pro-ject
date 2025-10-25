@@ -4,8 +4,9 @@ import { npmInstall } from "../utils/shell.js";
 import type { WizardContext } from "../utils/types.js";
 
 /**
- * Installs @angular/animations and injects provideAnimations()
- * into src/app/app.config.ts (standalone app).
+ * Adds Angular Animations to the project.
+ *
+ * @param ctx The wizard context.
  */
 export async function addAnimations(ctx: WizardContext): Promise<void> {
   console.log("Installing @angular/animations...");
