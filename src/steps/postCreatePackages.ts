@@ -12,6 +12,7 @@ import { addHusky } from "./addHusky.js";
 import { addLuxon } from "./addLuxon.js";
 import { addIoTs } from "./addIoTs.js";
 import { log } from "../utils/log.js";
+import { addOpinionatedStructure } from "./addOpinionatedStructure.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -120,6 +121,16 @@ export async function postCreatePackages(
     );
   }
 
+  const structure = await prompts(
+    {
+      type: "confirm",
+      name: "createStructure",
+      message: "Create opinionated src/app folder structure with README files?",
+      initial: true,
+    },
+    { onCancel }
+  );
+
   if (initialPrompts.includePrettier) {
     log("Adding Prettier formatting...");
     await addPrettier(ctx);
@@ -189,5 +200,11 @@ export async function postCreatePackages(
         log("Skipped ProAngular extras.");
       }
     }
+  }
+
+  if (structure.createStructure) {
+    await addOpinionatedStructure(ctx);
+  } else {
+    log("Skipped opinionated src/app structure.");
   }
 }
