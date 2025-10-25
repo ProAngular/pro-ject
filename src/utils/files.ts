@@ -6,15 +6,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * Gets the absolute path to the 'files' directory.
- *
- * @returns The absolute path to the 'files' directory.
- */
-export function filesRoot(): string {
-  return path.resolve(__dirname, "../files");
-}
-
-/**
  * Copies a file from the 'files' directory to a target location.
  *
  * @param relPath The relative path within the 'files' directory
@@ -47,4 +38,13 @@ export function copyTemplateAndReplace(
   );
   fs.mkdirSync(path.dirname(targetAbsPath), { recursive: true });
   fs.writeFileSync(targetAbsPath, out, "utf8");
+}
+
+/**
+ * Gets the absolute path to the 'files' directory.
+ *
+ * @returns The absolute path to the 'files' directory.
+ */
+export function filesRoot(): string {
+  return path.resolve(__dirname, "../files");
 }

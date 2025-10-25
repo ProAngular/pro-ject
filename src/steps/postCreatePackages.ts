@@ -4,6 +4,7 @@ import type { WizardContext } from "../utils/types.js";
 import { addAnimations } from "./addAnimations.js";
 import { addPrettier } from "./addPrettier.js";
 import { addLint } from "./addLint.js";
+import { addHusky } from "./addHusky.js";
 
 /**
  * Prompts the user to add optional Angular packages after project creation.
@@ -27,6 +28,12 @@ export async function postCreatePackages(
         type: "confirm",
         name: "lint",
         message: "Add ESLint (flat config)?",
+        initial: true,
+      },
+      {
+        type: "confirm",
+        name: "husky",
+        message: "Add Husky pre-commit hook?",
         initial: true,
       },
       {
@@ -57,6 +64,10 @@ export async function postCreatePackages(
 
   if (post.lint) {
     await addLint(ctx);
+  }
+
+  if (post.husky) {
+    await addHusky(ctx);
   }
 
   if (post.animations) {
