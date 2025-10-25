@@ -1,5 +1,5 @@
 {
-  "name": "pro-ject",
+  "name": "@proangular/pro-ject",
   "version": "1.0.0",
   "description": "A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20+ workspace with opinionated structure and best-practice defaults.",
   "bin": {

@@ -39,11 +39,29 @@
 
 ## Index <a name="index"></a>
 
+- [Description](#description)
 - [Quick Start](#quick-start)
 - [Development & Contribution](#development--contribution)
   - [Update and Test](#update-and-test)
   - [Project Layout](#project-layout)
 - [Wrapping Up](#wrapping-up)
+
+## Description <a name="description"></a>
+
+**@proangular/pro-ject** is an interactive Node CLI that guides `ng new` and sets up a clean Angular 20+ workspace with opinionated defaults. It validates and sanitizes the project name, ensures Angular CLI is available, scaffolds the repo, then offers post-create add ons for Animations (auto wires `provideAnimations()` in `app.config.ts`), Angular CDK, and Angular Material. One command to start, clear prompts, safe naming rules, and a tidy step pipeline you can extend.
+
+**Features**
+
+- `wizard` workflow with clear, minimal prompts
+- `TypeScript` first
+- `Angular 20+` ready
+- `Best Practices` baked in
+- `Runtime Type Checking` where it helps
+- `Angular Material` optional add on
+- `Animations` with automatic `provideAnimations()` wiring
+- `Opinionated Code Formatting (Prettier)`
+- `Code Checks (ESLint)`
+- `Husky Git Hooks` for pre-commit linting and formatting
 
 ## Quick Start <a name="quick-start"></a>
 
