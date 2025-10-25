@@ -12,10 +12,10 @@ import { onCancel } from "./utils/on-cancel.js";
 
 async function main(): Promise<void> {
   const v = VERSIONS["@angular/cli"];
-  const vCarrot = v.replace(/^\^?(\d+).*/, "$1");
+  const vCaret = v.replace(/^\^?(\d+).*/, "$1");
 
   log('Running "@proangular/pro-ject"', "bold");
-  log(`A simple Angular v${vCarrot}+ project scaffolding tool.`);
+  log(`A simple Angular v${vCaret}+ project scaffolding tool.`);
   log("Author: Cody Tolene <www.codytolene.com>", "cyan");
   log("");
   log("Angular Project Wizard", "green", true);
@@ -28,8 +28,9 @@ async function main(): Promise<void> {
   await ensureServeTarget(ctx);
   await postCreatePackages(ctx, onCancel);
 
-  log("The Angular project has been created successfully!");
-  log("Run `npm run start` to start the development server.");
+  log("The Angular project has been created successfully!", "green");
+  log("Run `npm run start` to start the development server.", "cyan");
+  log("Angular Project Wizard - Complete", "green", true);
 }
 
 main().catch((err) => {

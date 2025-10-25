@@ -12,7 +12,7 @@
     View Github Repository
   </a> 
   <p align="center">
-    Generate an Google Angular 20+ project with best-practice defaults in less than a minute!
+    Generate a Google Angular 20+ project with best-practice defaults in less than a minute!
   </p>
   <p align="center">
     A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20+ workspace with opinionated structure and best-practice defaults.
@@ -51,7 +51,7 @@
 
 ## Description <a name="description"></a>
 
-Generate an Google Angular 20+ project with best-practice defaults in less than a minute!
+Generate a Google Angular 20+ project with best-practice defaults in less than a minute!
 
 **@proangular/pro-ject** is an interactive Node CLI that guides `ng new` and sets up a clean Angular 20+ workspace with opinionated defaults. It validates and sanitizes the project name, ensures Angular CLI is available, scaffolds the repo, confirms a working **serve** target, and then offers post-create add-ons you can toggle on with simple prompts. One command to start, clear prompts, safe naming rules, and a tidy step pipeline you can extend.
 
