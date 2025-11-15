@@ -1,21 +1,32 @@
 <div align="center">
   <a href="https://www.ProAngular.com" target="_blank">
-    <img
+    <img 
       alt="pro-ject Logo"
       height="200"
       src="https://raw.githubusercontent.com/ProAngular/pro-ject/refs/heads/main/.github/images/logo.png" 
       width="200"
-    /> 
+    />
   </a>
-  <h1 align="center"><code>@proangular/pro-ject</code></h1>
-  <a align="center" href="https://github.com/ProAngular/pro-ject" target="_blank">
-    View Github Repository
-  </a> 
+  <h1 align="center">
+    @proangular/pro-ject
+  </h1>
+  <p align="center">
+    <a href="https://www.ProAngular.com" target="_blank">
+      ProAngular
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://github.com/ProAngular/pro-ject" target="_blank">
+      GitHub Repo
+    </a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://www.npmjs.com/@proangular/pro-ject" target="_blank">
+      NPM Package
+    </a>
+  </p>
   <p align="center">
     Generate a Google Angular 20+ project with best-practice defaults in less than a minute!
   </p>
   <p align="center">
-    A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20+ workspace with opinionated structure and best-practice defaults.
+    A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20+ 
+    workspace with opinionated structure and best-practice defaults.
   </p>
 </div>
 
@@ -23,68 +34,92 @@
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-[![npm](https://badgen.net/badge/icon/npm?icon=npm&label)](https://www.npmjs.com/@proangular/pro-ject)
-[![GitHub](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/ProAngular/pro-ject)
-[![TypeScript](https://badgen.net/badge/icon/TypeScript?icon=typescript&label)](https://github.com/ProAngular/pro-ject/search?l=typescript)
-[![npm Version](https://badge.fury.io/js/@proangular%2Fngx-scroll-top.svg)](https://www.npmjs.com/@proangular/pro-ject)
-[![Node Version](https://badgen.net/npm/node/@proangular/pro-ject)](https://www.npmjs.com/@proangular/pro-ject)
-[![Package Downloads](https://badgen.net/npm/dw/@proangular/pro-ject)](https://www.npmjs.com/@proangular/pro-ject)
-[![Size](https://img.shields.io/bundlephobia/minzip/@proangular/pro-ject.svg)](https://bundlephobia.com/result?p=ProAngular/pro-ject)
-[![Website Status](https://img.shields.io/website?down_color=lightgrey&down_message=Offline&label=Website&up_color=green&up_message=Online&url=https%3A%2F%2Fwww.proangular.com)](https://www.proangular.com)
-[![Sponsors](https://img.shields.io/github/sponsors/proangular?label=Sponsors)](https://github.com/sponsors/ProAngular)
-[![License](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](/LICENSE)
-[![GitHub Package Status](https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-gpr.yml/badge.svg)](https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-gpr.yml)
-[![npmjs Package Status](https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-npmjs.yml/badge.svg)](https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-npmjs.yml)
+<p align="center">
+  <a href="https://www.npmjs.com/@proangular/pro-ject" target="_blank">
+    <img src="https://badge.fury.io/js/@proangular%2Fpro-ject.svg" >
+  </a>
+  <a href="https://bundlephobia.com/result?p=ProAngular/pro-ject" target="_blank">
+    <img src="https://img.shields.io/bundlephobia/minzip/@proangular/pro-ject.svg" >
+  </a>
+  <a href="/LICENSE" target="_blank">
+    <img src="https://img.shields.io/npm/l/express.svg?maxAge=2592000" >
+  </a>
+</p>
+
+<!--
+<p align="center">
+  <a href="https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-gpr.yml" target="_blank">
+    <img src="https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-gpr.yml/badge.svg" >
+  </a>
+  <a href="https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-npmjs.yml" target="_blank">
+    <img src="https://github.com/ProAngular/pro-ject/actions/workflows/on-merge-main-deploy-npmjs.yml/badge.svg" >
+  </a>
+</p>
+-->
 
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-## Index <a name="index"></a>
-
-- [Description](#description)
-- [Quick Start](#quick-start)
-- [Development & Contribution](#development--contribution)
-  - [Update and Test](#update-and-test)
-  - [Project Layout](#project-layout)
-- [Wrapping Up](#wrapping-up)
-
-## Description <a name="description"></a>
-
-Generate a Google Angular 20+ project with best-practice defaults in less than a minute!
-
-**@proangular/pro-ject** is an interactive Node CLI that guides `ng new` and sets up a clean Angular 20+ workspace with opinionated defaults. It validates and sanitizes the project name, ensures Angular CLI is available, scaffolds the repo, confirms a working **serve** target, and then offers post-create add-ons you can toggle on with simple prompts. One command to start, clear prompts, safe naming rules, and a tidy step pipeline you can extend.
-
-**What it can set up for you**
-
-- `wizard` workflow with clear, minimal prompts
-- `TypeScript` first
-- `Angular 20+` ready
-- `Best Practices` baked in
-- `Runtime Type Checking` with `io-ts` (optional)
-- `DateTime` with `luxon` + Material Luxon adapter (optional)
-- `Angular CDK` (optional)
-- `Angular Material` (optional)
-  - If selected, optionally install:
-    - `@proangular/pro-form` — drop-in standalone inputs, unified labels/hints/errors, helpers like scroll-to-first-error and focus-on-invalid
-    - `@proangular/pro-table` — typed columns, selection, copy on click, expandable rows, intent-based sorting, and more
-    - `@proangular/ngx-scroll-top` — lightweight back-to-top button
-    - `@proangular/ngx-gist` — Material + Highlight.js styled box for gists and local snippets
-- `Angular Animations` wiring (optional)
-- `Opinionated src/app structure` with README placeholders for:
-  `components`, `constants`, `decorators`, `directives`, `enums`, `guards`, `layout`, `models`, `pages`, `pipes`, `providers`, `routing`, `services`, `signals`, `styles`, `types`, `utilities` (optional)
-- `Opinionated Code Formatting (Prettier)` (optional)
-- `Code Checks (ESLint)` (optional)
-- `Husky Git Hooks` for pre-commit linting and formatting (optional)
-- Ensures a working `ng serve` target and a writable project directory
-
-<p align="right">[ <a href="#index">Index</a> ]</p>
+<p align="center">
+  <code>npx -y @proangular/pro-ject@latest</code>
+</p>
+<p align="center">
+  <img 
+    src="https://raw.githubusercontent.com/ProAngular/pro-ject/refs/heads/main/.github/images/screenshots/screenshot.png"
+  />
+</p>
 
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-## Quick Start <a name="quick-start"></a>
+## 📇 Index <a name="index"></a>
+
+- [📄 Description](#description)
+- [🚀 Quick Start](#quick-start)
+- [🔨 Development & Contribution](#development--contribution)
+  - [📋 Prerequisites](#prerequisites)
+  - [🧪 Update and Test](#update-and-test)
+  - [📁 Project Layout](#project-layout)
+- [⚖️ Licensing](#licensing)
+- [🏁 Wrapping Up](#wrapping-up)
+
+## 📄 Description <a name="description"></a>
+
+Kickstart your next Angular project in seconds, not hours.
+
+**@proangular/pro-ject** is a friendly, interactive Node CLI that streamlines
+`ng new` and gives your Angular 20+ workspace a modern, best-practices
+foundation. With just one command, you'll get guided prompts for naming,
+structure, and sensible defaults. No more guessing what's standard or spending
+time configuring tools. After setup, opt into extras like runtime type
+checking, date handling, UI libraries, code formatting, and more, all ready
+with minimal fuss.
+
+**Why you'll love it:**
+
+- Clean, opinionated project scaffolding
+- Minimal, clear prompts to get started fast
+- TypeScript-first, Angular 20+ ready
+- Optional integration of Material, CDK, Prettier, ESLint, Husky, and more
+- Pick add-ons for forms, tables, snippets, and project structure—just toggle
+  on what you need
+- Fully validates your project name and setup
+- Ensures a working development server out of the box
+- Professional defaults that save you time, but still let you extend and
+  customize
+
+Perfect for new apps, rapid prototypes, or just skipping the boring setup
+steps—leaving you to focus on real features.
+
+<p align="right">[ <a href="#index">🔍 Index</a> ]</p>
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+## 🚀 Quick Start <a name="quick-start"></a>
 
 First, install [Node.js][node-js] v20+. Then, run the following command:
 
@@ -108,15 +143,15 @@ npm run start
 
 Then open your browser to `http://localhost:4200` to see your new Angular application in action!
 
-<p align="right">[ <a href="#index">Index</a> ]</p>
+<p align="right">[ <a href="#index">🔍 Index</a> ]</p>
 
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-## Development & Contribution <a name="development--contribution"></a>
+## 🔨 Development & Contribution <a name="development--contribution"></a>
 
-### Prerequisites
+### 📋 Prerequisites <a name="prerequisites"></a>
 
 1. Install [Node.js][node-js].
 
@@ -126,13 +161,13 @@ Then open your browser to `http://localhost:4200` to see your new Angular applic
    npm install
    ```
 
-<p align="right">[ <a href="#index">Index</a> ]</p>
+<p align="right">[ <a href="#index">🔍 Index</a> ]</p>
 
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-### Update and Test <a name="update-and-test"></a>
+### 🧪 Update and Test <a name="update-and-test"></a>
 
 1. Update source code in `src`.
 
@@ -142,13 +177,13 @@ Then open your browser to `http://localhost:4200` to see your new Angular applic
 
 4. Add your changes to git and create a pull request.
 
-<p align="right">[ <a href="#index">Index</a> ]</p>
+<p align="right">[ <a href="#index">🔍 Index</a> ]</p>
 
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-### Project Layout <a name="project-layout"></a>
+### 📁 Project Layout <a name="project-layout"></a>
 
     .
     ├─ .github/                      # GitHub workflows, actions, and related automation files.
@@ -170,13 +205,26 @@ Then open your browser to `http://localhost:4200` to see your new Angular applic
     ├─ README.md                     # This file.
     └─ tsconfig.json                 # TypeScript configuration file.
 
-<p align="right">[ <a href="#index">Index</a> ]</p>
+<p align="right">[ <a href="#index">🔍 Index</a> ]</p>
 
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 <!---------------------------------------------------------------------------->
 
-## Wrapping Up <a name="wrapping-up"></a>
+## ⚖️ Licensing <a name="licensing"></a>
+
+This project is licensed under the **MIT** License. See the
+[LICENSE](LICENSE.md) file for the pertaining license text.
+
+`SPDX-License-Identifier: MIT`
+
+<p align="right">[ <a href="#index">🔍 Index</a> ]</p>
+
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------->
+
+## 🏁 Wrapping Up <a name="wrapping-up"></a>
 
 Thank you to the entire Angular team and community for such a great framework to
 build upon. If you have any questions, please let me know by opening an issue
