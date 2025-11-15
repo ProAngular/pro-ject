@@ -48,24 +48,7 @@ jobs:
           VERSION=$(node -p 'JSON.parse(require("fs").readFileSync("package.json","utf8")).version')
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Check if version already exists on GitHub Packages
-        id: check
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          PKG=$(node -p "require('./package.json').name")
-          CURRENT=$(npm view "$PKG" version --registry=https://npm.pkg.github.com || echo "0.0.0")
-          echo "current_registry_version=$CURRENT" >> "$GITHUB_OUTPUT"
-          if [ "$CURRENT" = "${{ steps.pkg.outputs.version }}" ]; then
-            echo "should_publish=false" >> "$GITHUB_OUTPUT"
-            echo "Version $CURRENT already exists on GitHub Packages. Skipping publish."
-          else
-            echo "should_publish=true" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Publish to GitHub Packages
-        if: steps.check.outputs.should_publish == 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
