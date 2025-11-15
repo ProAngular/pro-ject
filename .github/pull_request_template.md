@@ -2,7 +2,7 @@
 
 A brief overview of your completed or ongoing work.
 
-### Developement Checklist
+### Development Checklist
 
 - [ ] Bump version up (`package.json` **and** `package-lock.json`)
 
