@@ -6,6 +6,7 @@ import { npmInstall } from "../utils/shell.js";
 import { readJsonLoose, writeJson } from "../utils/json.js";
 import { copyTemplateAndReplace } from "../utils/files.js";
 import { toKebab } from "../utils/name.js";
+import { getWorkspaceAngularVersion } from "../utils/angular-version.js";
 import { VERSIONS } from "../constants/versions.js";
 import { log } from "../utils/log.js";
 
@@ -23,10 +24,15 @@ export async function addLint(ctx: WizardContext): Promise<void> {
     initial: defaultPrefix,
   });
 
+  const angularVersion = getWorkspaceAngularVersion(ctx.targetDir);
+  const angularMajorCaret =
+    angularVersion.replace(/^\^?(\d+).*/, "^$1") ||
+    VERSIONS["angular-eslint"];
+
   await npmInstall(
     [
       "-D",
-      `angular-eslint@${VERSIONS["angular-eslint"]}`,
+      `angular-eslint@${angularMajorCaret}`,
       `eslint@${VERSIONS.eslint}`,
       `typescript-eslint@${VERSIONS["typescript-eslint"]}`,
     ],
