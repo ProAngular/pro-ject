@@ -146,11 +146,6 @@ export async function postCreatePackages(
     await addHusky(ctx);
   }
 
-  if (initialPrompts.includeLuxon) {
-    log("Adding Luxon DateTime support...");
-    await addLuxon(ctx);
-  }
-
   if (initialPrompts.includeIoTs) {
     log("Adding io-ts for runtime type checking...");
     await addIoTs(ctx);
@@ -175,21 +170,22 @@ export async function postCreatePackages(
 
     if (proPackagesPrompts) {
       const proPackagesInstall: string[] = [];
+      const proAngularVersion = "@^20";
 
       if (proPackagesPrompts.includeIoProForm) {
-        proPackagesInstall.push("@proangular/pro-form");
+        proPackagesInstall.push(`@proangular/pro-form${proAngularVersion}`);
       }
 
       if (proPackagesPrompts.includeIoProTable) {
-        proPackagesInstall.push("@proangular/pro-table");
+        proPackagesInstall.push(`@proangular/pro-table${proAngularVersion}`);
       }
 
       if (proPackagesPrompts.includeIoNgxScrollTop) {
-        proPackagesInstall.push("@proangular/ngx-scroll-top");
+        proPackagesInstall.push(`@proangular/ngx-scroll-top${proAngularVersion}`);
       }
 
       if (proPackagesPrompts.includeIoNgxGist) {
-        proPackagesInstall.push("@proangular/ngx-gist");
+        proPackagesInstall.push(`@proangular/ngx-gist${proAngularVersion}`);
       }
 
       if (proPackagesInstall.length) {
@@ -200,6 +196,11 @@ export async function postCreatePackages(
         log("Skipped ProAngular extras.");
       }
     }
+  }
+
+  if (initialPrompts.includeLuxon) {
+    log("Adding Luxon DateTime support...");
+    await addLuxon(ctx);
   }
 
   if (structure.createStructure) {

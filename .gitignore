@@ -1,4 +1,5 @@
 # Angular specific
+dist/
 /dist/
 
 # Node modules and dependency files
