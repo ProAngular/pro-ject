@@ -18,7 +18,7 @@ export function getWorkspaceAngularVersion(targetDir: string): string {
   // Fallback: use ng CLI major
   const cli = VERSIONS["@angular/cli"];
 
-  // Example "^20.1.7" -> "^20"
+  // Example "^21.0.0" -> "^21"
   const major = cli.replace(/^\^?(\d+).*/, "^$1");
-  return major || "^20";
+  return major || "^21";
 }

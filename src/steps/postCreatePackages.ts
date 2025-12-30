@@ -170,7 +170,7 @@ export async function postCreatePackages(
 
     if (proPackagesPrompts) {
       const proPackagesInstall: string[] = [];
-      const proAngularVersion = "@^20";
+      const proAngularVersion = "@^21";
 
       if (proPackagesPrompts.includeIoProForm) {
         proPackagesInstall.push(`@proangular/pro-form${proAngularVersion}`);

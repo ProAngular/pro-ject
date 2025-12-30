@@ -30,9 +30,9 @@ export async function addCdkCompat(targetDir: string): Promise<void> {
  * @param targetDir The target directory of the Angular workspace.
  */
 export async function addMaterialCompat(targetDir: string): Promise<void> {
-  const v = getWorkspaceAngularVersion(targetDir); // e.g. "^20.1.6"
+  const v = getWorkspaceAngularVersion(targetDir); // e.g. "^21.0.0"
   // convert to caret major to be resilient across patches
-  const majorCaret = v.replace(/^\^?(\d+).*/, "^$1"); // "^20"
+  const majorCaret = v.replace(/^\^?(\d+).*/, "^$1"); // "^21"
   await runNgAdd(`@angular/material@${majorCaret}`, targetDir);
 }
 
