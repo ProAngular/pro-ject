@@ -1,7 +1,7 @@
 {
   "name": "@proangular/pro-ject",
   "version": "21.0.0",
-  "description": "A lightweight Node CLI that guides `ng new` and scaffolds an Angular 21+ workspace with opinionated structure and best-practice defaults.",
+  "description": "A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20-21+ workspace with opinionated structure and best-practice defaults.",
   "author": "Pro Angular <webmaster@proangular.com>",
   "private": false,
   "engines": {

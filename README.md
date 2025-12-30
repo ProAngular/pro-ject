@@ -22,10 +22,10 @@
     </a>
   </p>
   <p align="center">
-    Generate a Google Angular 21+ project with best-practice defaults in less than a minute!
+    Generate a Google Angular 20-21+ project with best-practice defaults in less than a minute!
   </p>
   <p align="center">
-    A lightweight Node CLI that guides `ng new` and scaffolds an Angular 21+ 
+    A lightweight Node CLI that guides `ng new` and scaffolds an Angular 20-21+ 
     workspace with opinionated structure and best-practice defaults.
   </p>
 </div>
@@ -91,7 +91,7 @@
 Kickstart your next Angular project in seconds, not hours.
 
 **@proangular/pro-ject** is a friendly, interactive Node CLI that streamlines
-`ng new` and gives your Angular 21+ workspace a modern, best-practices
+`ng new` and gives your Angular 20-21+ workspace a modern, best-practices
 foundation. With just one command, you'll get guided prompts for naming,
 structure, and sensible defaults. No more guessing what's standard or spending
 time configuring tools. After setup, opt into extras like runtime type
@@ -102,7 +102,7 @@ with minimal fuss.
 
 - Clean, opinionated project scaffolding
 - Minimal, clear prompts to get started fast
-- TypeScript-first, Angular 21+ ready
+- TypeScript-first, Angular 20-21+ ready
 - Optional integration of Material, CDK, Prettier, ESLint, Husky, and more
 - Pick add-ons for forms, tables, snippets, and project structure—just toggle
   on what you need
